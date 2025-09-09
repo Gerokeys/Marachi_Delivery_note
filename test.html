@@ -1,0 +1,87 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotation - Marachi Metal Fabricators and Welders</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <div class="quotation-container" id="quotationContent">
+        <header class="quotation-header">
+            <div class="logo">
+                <img src="./assets/logo.jpeg" alt="Company Logo">
+            </div>
+            <div class="company-info">
+                <h1>Marachi Metal Fabricators and Welders</h1>
+                <p>Specializing in all types of steel structures, doors, windows, and more.</p>
+                <p>Location: Watalaam Road, Ruiru</p>
+                <p>P.O. Box 642, Ruiru</p>
+                <p>Phone: 0721 672 387</p>
+            </div>
+        </header>
+
+        <section class="quotation-body">
+            <h2>Quotation</h2>
+
+            <!-- New Client Name Input -->
+            <div class="client-info">
+                <label for="clientName">Client's Name:</label>
+                <input type="text" id="clientName" placeholder="Enter client's name">
+            </div>
+
+            <!-- Form moved above table -->
+            <div class="form">
+                <input type="text" id="description" placeholder="Item Description">
+                <input type="text" id="measurements" placeholder="Measurements (e.g., 2x3 meters)">
+                <input type="number" id="quantity" placeholder="Quantity">
+                <input type="number" id="unitPrice" placeholder="Unit Price (Ksh)">
+            </div>
+
+            <table id="quotationTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Item Description</th>
+                        <th>Measurements</th>
+                        <th>Quantity</th>
+                        <th>Unit Price (Ksh)</th>
+                        <th>Total (Ksh)</th>
+                    </tr>
+                </thead>
+                <tbody id="predefinedRows">
+                    <!-- Predefined empty rows for spacing -->
+                    <tr>
+                        <td colspan="6">&nbsp;</td>
+                    </tr>
+                    <!-- Additional rows as needed -->
+                </tbody>
+            </table>
+
+            <div class="quotation-total">
+                <p><strong>Grand Total: </strong><span id="grandTotal">0.00</span> Ksh</p>
+            </div>
+
+            <!-- Move Add Item button here -->
+            <button onclick="addItem()">Add Item</button>
+        </section>
+
+        <footer class="quotation-footer">
+            <p>This quotation is valid for 30 Days from the above mentioned date.</p>
+            <p>Please do not hesitate to contact us should you have any questions:</p>
+            <p>PREPARED BY: ERICK M. OCHIENG</p>
+            <p>EMAIL: erickmochieng@gmail.com</p>
+            <p>SIGNED: …………………………….</p>
+            <p>KRA PIN: A004195051M</p>
+        </footer>
+    </div>
+
+    <button id="downloadBtn" onclick="downloadQuotation()">Download Quotation as PDF</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
