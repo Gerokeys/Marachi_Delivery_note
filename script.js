@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to add a new item to the table
   window.addItem = function () {
     const description = document.getElementById("description").value;
-    const measurements = document.getElementById("measurements").value;
-    const quantity = parseInt(document.getElementById("quantity").value);
-    const unitPrice = parseFloat(document.getElementById("unitPrice").value);
+    // const measurements = document.getElementById("measurements").value;
+    // const quantity = parseInt(document.getElementById("quantity").value);
+    // const unitPrice = parseFloat(document.getElementById("unitPrice").value);
 
-    if (description && measurements && quantity > 0 && unitPrice > 0) {
+    if (description && measurements && quantity  && unitPrice) {
       const total = quantity * unitPrice;
       subtotal += total;
       itemCount++;
@@ -23,18 +23,15 @@ document.addEventListener("DOMContentLoaded", function () {
       row.innerHTML = `
         <td>${itemCount}</td>
         <td>${description}</td>
-        <td>${measurements}</td>
-        <td>${quantity}</td>
-        <td>${unitPrice.toLocaleString()}</td>
-        <td>${total.toLocaleString()}</td>
+        
       `;
       tableBody.appendChild(row);
 
-      // Update subtotal and grand total displays
+      
       subtotalEl.textContent = subtotal.toLocaleString();
       grandTotalEl.textContent = subtotal.toLocaleString();
 
-      // Clear input fields
+      
       document.getElementById("description").value = "";
       document.getElementById("measurements").value = "";
       document.getElementById("quantity").value = "";
@@ -377,3 +374,5 @@ document.addEventListener("DOMContentLoaded", function () {
     String(today.getDate()).padStart(2, "0");
   dateElement.textContent = formattedDate;
 });
+
+

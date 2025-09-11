@@ -30,10 +30,10 @@
         WheelBarrows & all general metal engineering fabricated works
         Contractors etc.
       </p>
-      <h2 class="word">QUOTATION</h2>
+      <h2 class="word">DELIVERY NOTE</h2>
       <div class="quotation-details">
         <div class="quotation-number">
-          <h2>Quotation Number:</h2>
+          <h2>Delivery Number:</h2>
           <input
             required
             type="text"
@@ -42,7 +42,7 @@
           />
         </div>
         <div class="quotation-date">
-          <h2>Quotation Date:</h2>
+          <h2>Delivery Date:</h2>
           <p><span id="currentDate"></span></p>
         </div>
         <div class="company-details">
@@ -96,10 +96,10 @@
             <tr>
               <th>#</th>
               <th>Item Description</th>
-              <th>Measurements</th>
+              <!-- <th>Measurements</th>
               <th>Quantity</th>
               <th>Unit Price</th>
-              <th>Total (Ksh)</th>
+              <th>Total (Ksh)</th> -->
             </tr>
           </thead>
           <tbody id="predefinedRows">
@@ -114,7 +114,7 @@
         <div class="terms">
           <h3>Terms & Conditions</h3>
           <p>
-            This quotation is valid for 30 days from the above-mentioned date.
+            This Delivery Note is valid for 30 days from the above-mentioned date.
           </p>
           <p>
             Please do not hesitate to contact us should you have any questions.
@@ -131,11 +131,11 @@
             <p>KRA PIN: A004195051M</p>
           </div>
         </div>
-        <div class="quotation-total">
+        <!-- <div class="quotation-total">
           <p>SUBTOTAL: <span id="subtotal">0.00</span></p>
           <p>TAX @ 0%: <span id="subtotal">0.00</span></p>
           <p class="grand">TOTAL: <span id="grandTotal">0.00</span></p>
-        </div>
+        </div> -->
       </footer>
     </div>
 
@@ -151,3 +151,9 @@
     <script src="script.js"></script>
   </body>
 </html>
+
+<!-- 
+<td>${measurements}</td>
+        <td>${quantity}</td>
+        <td>${unitPrice.toLocaleString()}</td>
+        <td>${total.toLocaleString()}</td> -->
