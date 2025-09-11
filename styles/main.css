@@ -247,7 +247,15 @@ footer p {
 
 .receive-signed {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 10px;
   margin: 10px 0;
+  width: 20vw;
+}
+
+.receive-signed input {
+  border: none;
+  outline: none;
+  font-size: 1em;
+  font-weight: 500;
 }
