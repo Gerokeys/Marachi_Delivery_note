@@ -29,10 +29,10 @@
         WheelBarrows & all general metal engineering fabricated works
         Contractors etc.
       </p>
-      <h2 class="word">QUOTATION</h2>
+      <h2 class="word">DELIVERY NOTE</h2>
       <div class="quotation-details">
         <div class="quotation-number">
-          <h2>Quotation Number:</h2>
+          <h2>Delivery Number:</h2>
           <input
             required
             type="text"
@@ -41,7 +41,7 @@
           />
         </div>
         <div class="quotation-date">
-          <h2>Quotation Date:</h2>
+          <h2>Delivery Date:</h2>
           <p><span id="currentDate"></span></p>
         </div>
         <div class="company-details">
@@ -95,10 +95,10 @@
             <tr>
               <th>#</th>
               <th>Item Description</th>
-              <th>Measurements</th>
+              <!-- <th>Measurements</th>
               <th>Quantity</th>
               <th>Unit Price</th>
-              <th>Total (Ksh)</th>
+              <th>Total (Ksh)</th> -->
             </tr>
           </thead>
           <tbody id="predefinedRows"></tbody>
@@ -107,36 +107,53 @@
         <button onclick="addItem()">Add Item</button>
       </section>
 
-<footer class="footer">
+      <footer class="footer">
         <div class="terms">
           <h3>Terms & Conditions</h3>
           <p>
-            This Quotation is valid for 30 days from the above mentioned date.
+            This Delivery Note is valid for 30 days from the above-mentioned
+            date.
           </p>
           <p>
             Please do not hesitate to contact us should you have any questions.
           </p>
           <div class="sign">
-            <p><strong>Prepared BY: ERICK M. OCHIENG:</strong></p>
+            <p>Prepared BY: ERICK M. OCHIENG:</p>
             <div class="signed">
-              <p><strong>Signed</strong></p>
+              <p>Signed</p>
               <div class="dot">
                 <img src="./assets/Picture.png" alt="" />
-                <p><strong>.........................</strong></p>
+                <p>.........................</p>
               </div>
             </div>
-            <p><strong>KRA PIN: A004195051M</strong></p>
+            <p>KRA PIN: A004195051M</p>
           </div>
         </div>
         <div class="quotation-total">
-          <p><strong>SUBTOTAL:</strong> <span id="subtotal">0.00</span></p>
-          <p><strong>TAX @ 0%:</strong> <span id="subtotal">0.00</span></p>
-          <p class="grand">
-            <strong>TOTAL:</strong> <span id="grandTotal">0.00</span>
+          <p>
+            I acknowledge that the goods listed above have been received in good
+            condition and as per the order.
           </p>
+          <div class="receive-signed">
+            <p>Received by</p>
+            <input
+              required
+              type="text"
+              id="clientName"
+              placeholder="Enter client name"
+              style="width: 80%"
+            />
+          </div>
+          <div class="signed">
+            <p>Signed</p>
+            <div class="dot">
+              <p>.........................................</p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
+
     <button id="downloadBtn" onclick="downloadQuotation()">
       Download Quotation as PDF
     </button>
