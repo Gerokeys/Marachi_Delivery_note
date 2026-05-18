@@ -8,150 +8,171 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&family=Roboto:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <div id="quotationContent" class="quotation-container">
+
+      <!-- Header -->
       <header class="quotation-header">
         <div class="name">
-          <img src="assets/header.png" alt="header" />
+          <img src="assets/header.png" alt="Marachi Metal Fabricators and Welders" />
         </div>
         <div class="logo">
           <img src="./assets/logo.jpeg" alt="Company Logo" />
           <p>Welding Your Future</p>
         </div>
       </header>
+
       <p class="dealers">
-        Specialist dealers of all types of steel structures, Metal Fabricated
-        Kiosks, Gates, Grills, Doors, windows, Water tanks, water towers,
-        WheelBarrows & all general metal engineering fabricated works
-        Contractors etc.
+        Specialist dealers of all types of steel structures, Metal Fabricated Kiosks, Gates,
+        Grills, Doors, Windows, Water Tanks, Water Towers, Wheelbarrows &amp; all general metal
+        engineering fabricated works &amp; Contractors.
       </p>
+
+      <!-- Document title -->
       <h2 class="word">QUOTATION</h2>
-      <div class="quotation-details">
-        <div class="quotation-number">
-          <h2>Quotation Number:</h2>
-          <input
-            required
-            type="text"
-            id="invoiceNumber"
-            placeholder="Enter Delivery note number"
-          />
-        </div>
-        <div class="quotation-date">
-          <h2>Quotation Date:</h2>
-          <p><span id="currentDate"></span></p>
-        </div>
-        <div class="company-details">
-          <h2>Company Details:</h2>
-          <p>
-            Along Ruiru-Kamiti Road,<br />
-            Opposite the affordable housing buildings
-          </p>
-          <p>Contact: 0721672387</p>
-          <p>Website: <a href="#">marachifabrications.com</a></p>
-        </div>
-      </div>
 
-      <div class="construction-details">
-        <h2>Construction Details</h2>
-        <div class="client-name">
-          <label for="clientName">Client's Name:</label>
-          <input
-            required
-            type="text"
-            id="clientName"
-            placeholder="Enter client's name"
-            style="width: 80%"
-          />
-        </div>
-        <div class="project-description">
-          <label for="projectDesc">Project Description:</label>
-          <textarea
-            required
-            id="projectDesc"
-            placeholder="Enter project description"
-            style="width: 70%"
-          ></textarea>
-        </div>
-      </div>
+      <!-- Meta box: number / date / client / FROM -->
+      <div class="doc-meta-box">
+        <div class="doc-meta-left">
+          <div class="meta-row">
+            <span class="meta-label">Quotation No.:</span>
+            <input type="text" id="invoiceNumber" class="meta-input" placeholder="e.g. QN-001" />
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Date:</span>
+            <span id="currentDate" class="meta-value"></span>
+          </div>
 
-      <section class="quotation-table">
-        <div class="form">
-          <input type="text" id="description" placeholder="Item Description" />
-          <input
-            type="text"
-            id="measurements"
-            placeholder="Measurements (e.g., 2x3 meters)"
-          />
-          <input type="number" id="quantity" placeholder="Quantity" />
-          <input type="number" id="unitPrice" placeholder="Unit Price (Ksh)" />
-        </div>
+          <div class="meta-divider"></div>
+          <div class="meta-section-title">BILL TO:</div>
 
-        <table id="quotationTable">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Item Description</th>
-              <th>Measurements</th>
-              <th>Quantity</th>
-              <th>Unit Price</th>
-              <th>Total (Ksh)</th>
-            </tr>
-          </thead>
-          <tbody id="predefinedRows"></tbody>
-        </table>
-
-        <button onclick="addItem()">Add Item</button>
-      </section>
-
-<footer class="footer">
-        <div class="terms">
-          <h3>Terms & Conditions</h3>
-          <p>
-            This Quotation is valid for 30 days from the above mentioned date.
-          </p>
-          <p>
-            Please do not hesitate to contact us should you have any questions.
-          </p>
-          <div class="sign">
-            <p><strong>Prepared BY: ERICK M. OCHIENG:</strong></p>
-            <div class="signed">
-              <p><strong>Signed</strong></p>
-              <div class="dot">
-                <img src="./assets/Picture.png" alt="" />
-                <p><strong>.........................</strong></p>
-              </div>
-            </div>
-            <p><strong>KRA PIN: A004195051M</strong></p>
+          <div class="meta-row">
+            <span class="meta-label">Client:</span>
+            <input type="text" id="clientName" class="meta-input" placeholder="Client's full name" />
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Project:</span>
+            <input type="text" id="projectDesc" class="meta-input" placeholder="Brief project description" />
           </div>
         </div>
-        <div class="quotation-total">
-          <p><strong>SUBTOTAL:</strong> <span id="subtotal">0.00</span></p>
-          <p><strong>TAX @ 0%:</strong> <span id="subtotal">0.00</span></p>
-          <p class="grand">
-            <strong>TOTAL:</strong> <span id="grandTotal">0.00</span>
-          </p>
+
+        <div class="doc-meta-right">
+          <div class="meta-section-title">FROM:</div>
+          <p><strong>Marachi Metal Fabricators &amp; Welders</strong></p>
+          <p>Along Ruiru-Kamiti Road,<br />Opposite the affordable housing buildings</p>
+          <p>Tel: 0721672387</p>
+          <p><a href="#">marachifabrications.com</a></p>
+          <p>KRA PIN: A004195051M</p>
+        </div>
+      </div>
+
+      <!-- Items section -->
+      <section class="quotation-table">
+
+        <!-- Add item form -->
+        <div class="add-item-form no-print">
+          <div class="add-item-header">&#9998; ADD A LINE ITEM:</div>
+          <div class="add-item-row">
+            <input type="text"   id="description"  placeholder="Item Description" style="flex:2;" />
+            <input type="text"   id="measurements" placeholder="Measurements (e.g. 2×3 m)" />
+            <input type="number" id="quantity"      placeholder="Qty" min="1" />
+            <input type="number" id="unitPrice"     placeholder="Unit Price (Ksh)" min="0" step="0.01" />
+            <button id="addItemBtn" onclick="addItem()">+ Add Row</button>
+          </div>
+        </div>
+
+        <!-- Items table -->
+        <div class="table-wrapper">
+          <table id="quotationTable">
+            <thead>
+              <tr>
+                <th style="width:36px;">#</th>
+                <th>Item Description</th>
+                <th style="width:120px;">Measurements</th>
+                <th style="width:46px;">Qty</th>
+                <th style="width:110px;">Unit Price (Ksh)</th>
+                <th style="width:110px;">Total (Ksh)</th>
+                <th class="no-print" style="width:110px;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="predefinedRows"></tbody>
+          </table>
+        </div>
+
+        <!-- Notes box -->
+        <div class="notes-box">
+          <div class="no-print">
+            <div class="notes-header">NOTES</div>
+            <div class="quick-add-row">
+              <span class="quick-add-label">Quick add:</span>
+              <button class="quick-chip chip-grey"   onclick="addQuickNote('50% deposit required before work commences.')">50% Deposit</button>
+              <button class="quick-chip chip-grey"   onclick="addQuickNote('Price excludes VAT.')">Excl. VAT</button>
+              <button class="quick-chip chip-blue"   onclick="addQuickNote('Lead time: 2 weeks from deposit date.')">Lead: 2 Wks</button>
+              <button class="quick-chip chip-green"  onclick="addQuickNote('1-year workmanship warranty.')">1yr Warranty</button>
+              <button class="quick-chip chip-orange" onclick="addQuickNote('Subject to site survey.')">Site Survey</button>
+              <button class="quick-chip chip-grey"   onclick="addQuickNote('Prices valid for 30 days.')">30-Day Valid</button>
+              <button class="quick-chip chip-red"    onclick="addQuickNote('Cash on delivery.')">Cash on Delivery</button>
+            </div>
+            <textarea id="quickNotes" placeholder="Enter additional notes or special terms…"></textarea>
+          </div>
+          <!-- Shown in PDF only when notes has content -->
+          <div id="notesPrint" style="display:none;">
+            <p style="font-size:0.74em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:4px;">Notes:</p>
+            <p id="notesText" style="font-size:0.85em;white-space:pre-wrap;color:#333;line-height:1.5;"></p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="terms">
+          <h3>Terms &amp; Conditions</h3>
+          <p>This Quotation is valid for 30 days from the above mentioned date.</p>
+          <p>Please do not hesitate to contact us should you have any questions.</p>
+          <div class="sign">
+            <p><strong>Prepared by: ERICK M. OCHIENG</strong></p>
+            <div class="signed">
+              <p>Authorised Signature:</p>
+              <div class="dot">
+                <img src="./assets/Picture.png" alt="Signature" />
+                <p>.....................</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <table class="totals-table">
+            <tr>
+              <td>Subtotal:</td>
+              <td>Ksh <span id="subtotal">0.00</span></td>
+            </tr>
+            <tr>
+              <td>Tax @ 0%:</td>
+              <td>Ksh 0.00</td>
+            </tr>
+            <tr class="grand">
+              <td><strong>TOTAL:</strong></td>
+              <td><strong>Ksh <span id="grandTotal">0.00</span></strong></td>
+            </tr>
+          </table>
         </div>
       </footer>
     </div>
-    <button id="downloadBtn" onclick="downloadQuotation()">
-      Download Quotation as PDF
-    </button>
-    <button id="downloadWordBtn" onclick="downloadQuotationAsWord()">
-      Download Quotation as Word
-    </button>
+
+    <!-- Download bar -->
+    <div class="download-section">
+      <button id="downloadBtn" onclick="downloadQuotation()">&#8595; Download as PDF</button>
+      <button id="downloadWordBtn" onclick="downloadQuotationAsWord()">&#8595; Download as Word</button>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html-docx-js/0.7.0/html-docx.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
-
-<!-- 
-<td>${measurements}</td>
-        <td>${quantity}</td>
-        <td>${unitPrice.toLocaleString()}</td>
-        <td>${total.toLocaleString()}</td> -->
