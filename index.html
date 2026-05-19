@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@600;700&family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -35,38 +35,34 @@
       <!-- Document title -->
       <h2 class="word">QUOTATION</h2>
 
-      <!-- Meta box: number / date / client / FROM -->
+      <!-- Meta box: 3-column layout -->
       <div class="doc-meta-box">
-        <div class="doc-meta-left">
-          <div class="meta-row">
-            <span class="meta-label">Quotation No.:</span>
-            <input type="text" id="invoiceNumber" class="meta-input" placeholder="e.g. QN-001" />
-          </div>
-          <div class="meta-row">
-            <span class="meta-label">Date:</span>
-            <span id="currentDate" class="meta-value"></span>
-          </div>
-
-          <div class="meta-divider"></div>
-          <div class="meta-section-title">BILL TO:</div>
-
-          <div class="meta-row">
-            <span class="meta-label">Client:</span>
-            <input type="text" id="clientName" class="meta-input" placeholder="Client's full name" />
-          </div>
-          <div class="meta-row">
-            <span class="meta-label">Project:</span>
-            <input type="text" id="projectDesc" class="meta-input" placeholder="Brief project description" />
-          </div>
+        <div class="doc-meta-col">
+          <div class="meta-col-label">Quotation Number:</div>
+          <input type="text" id="invoiceNumber" class="meta-input" placeholder="e.g. QN-001" />
         </div>
-
-        <div class="doc-meta-right">
-          <div class="meta-section-title">FROM:</div>
-          <p><strong>Marachi Metal Fabricators &amp; Welders</strong></p>
+        <div class="doc-meta-col">
+          <div class="meta-col-label">Quotation Date:</div>
+          <input type="text" id="currentDate" class="meta-input" />
+        </div>
+        <div class="doc-meta-col doc-meta-company">
+          <div class="meta-col-label">Company Details:</div>
           <p>Along Ruiru-Kamiti Road,<br />Opposite the affordable housing buildings</p>
-          <p>Tel: 0721672387</p>
-          <p><a href="#">marachifabrications.com</a></p>
-          <p>KRA PIN: A004195051M</p>
+          <p>Contact: 0721672387</p>
+          <p>Website: <a href="#">marachifabrications.com</a></p>
+        </div>
+      </div>
+
+      <!-- Construction Details -->
+      <div class="construction-details">
+        <h2 class="construction-title">Construction Details</h2>
+        <div class="meta-row">
+          <span class="meta-label">Client's Name:</span>
+          <input type="text" id="clientName" class="meta-input" placeholder="Client's full name" />
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Project Description:</span>
+          <input type="text" id="projectDesc" class="meta-input" placeholder="Brief project description" />
         </div>
       </div>
 
@@ -103,29 +99,6 @@
           </table>
         </div>
 
-        <!-- Notes box -->
-        <div class="notes-box">
-          <div class="no-print">
-            <div class="notes-header">NOTES</div>
-            <div class="quick-add-row">
-              <span class="quick-add-label">Quick add:</span>
-              <button class="quick-chip chip-grey"   onclick="addQuickNote('50% deposit required before work commences.')">50% Deposit</button>
-              <button class="quick-chip chip-grey"   onclick="addQuickNote('Price excludes VAT.')">Excl. VAT</button>
-              <button class="quick-chip chip-blue"   onclick="addQuickNote('Lead time: 2 weeks from deposit date.')">Lead: 2 Wks</button>
-              <button class="quick-chip chip-green"  onclick="addQuickNote('1-year workmanship warranty.')">1yr Warranty</button>
-              <button class="quick-chip chip-orange" onclick="addQuickNote('Subject to site survey.')">Site Survey</button>
-              <button class="quick-chip chip-grey"   onclick="addQuickNote('Prices valid for 30 days.')">30-Day Valid</button>
-              <button class="quick-chip chip-red"    onclick="addQuickNote('Cash on delivery.')">Cash on Delivery</button>
-            </div>
-            <textarea id="quickNotes" placeholder="Enter additional notes or special terms…"></textarea>
-          </div>
-          <!-- Shown in PDF only when notes has content -->
-          <div id="notesPrint" style="display:none;">
-            <p style="font-size:0.74em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:4px;">Notes:</p>
-            <p id="notesText" style="font-size:0.85em;white-space:pre-wrap;color:#333;line-height:1.5;"></p>
-          </div>
-        </div>
-
       </section>
 
       <!-- Footer -->
@@ -135,14 +108,15 @@
           <p>This Quotation is valid for 30 days from the above mentioned date.</p>
           <p>Please do not hesitate to contact us should you have any questions.</p>
           <div class="sign">
-            <p><strong>Prepared by: ERICK M. OCHIENG</strong></p>
+            <p><strong>Prepared BY: ERICK M. OCHIENG:</strong></p>
             <div class="signed">
-              <p>Authorised Signature:</p>
+              <p>Signed</p>
               <div class="dot">
                 <img src="./assets/Picture.png" alt="Signature" />
                 <p>.....................</p>
               </div>
             </div>
+            <p style="margin-top:6px;font-size:0.82em;font-weight:700;">KRA PIN: A004195051M</p>
           </div>
         </div>
 

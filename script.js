@@ -6,14 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let itemCount = 0;
 
-  // Full date format: e.g. "Monday, 18 May 2026"
+  // Default date to today; user can edit the field freely
   const today = new Date();
-  dateElement.textContent = today.toLocaleDateString("en-GB", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+  const y = today.getFullYear();
+  const m = String(today.getMonth() + 1).padStart(2, "0");
+  const d = String(today.getDate()).padStart(2, "0");
+  dateElement.value = `${y}-${m}-${d}`;
 
   // ── Helpers ─────────────────────────────────────────────
 
@@ -186,20 +184,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ── PDF export ────────────────────────────────────────────
 
+  function buildFilename(ext) {
+    const proj = (document.getElementById("projectDesc")?.value?.trim() || "")
+      .replace(/\s+/g, "_")
+      .replace(/[^a-zA-Z0-9_-]/g, "")
+      .substring(0, 50);
+    return proj ? `Quotation_${proj}.${ext}` : `Quotation_Marachi_Metal_Fabricators.${ext}`;
+  }
+
   window.downloadQuotation = function () {
     const editing = tableBody.querySelector(".editing-row");
     if (editing) saveRow(editing);
-
-    // Show notes in PDF only if there is content
-    const quickNotes = document.getElementById("quickNotes");
-    const notesPrint = document.getElementById("notesPrint");
-    if (quickNotes && notesPrint) {
-      const text = quickNotes.value.trim();
-      if (text) {
-        document.getElementById("notesText").textContent = text;
-        notesPrint.style.display = "block";
-      }
-    }
 
     document.querySelectorAll(".no-print").forEach((el) => (el.style.display = "none"));
 
@@ -207,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .from(document.getElementById("quotationContent"))
       .set({
         margin: [8, 8, 8, 8],
-        filename: "Quotation_Marachi_Metal_Fabricators.pdf",
+        filename: buildFilename("pdf"),
         image: { type: "jpeg", quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
@@ -215,7 +210,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .save()
       .then(() => {
         document.querySelectorAll(".no-print").forEach((el) => (el.style.display = ""));
-        if (notesPrint) notesPrint.style.display = "none";
       });
   };
 
@@ -225,20 +219,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const editing = tableBody.querySelector(".editing-row");
     if (editing) saveRow(editing);
 
-    // Populate print notes before cloning
-    const quickNotes = document.getElementById("quickNotes");
-    const notesPrint = document.getElementById("notesPrint");
-    if (quickNotes && notesPrint) {
-      const text = quickNotes.value.trim();
-      if (text) {
-        document.getElementById("notesText").textContent = text;
-        notesPrint.style.display = "block";
-      }
-    }
-
     const content = document.getElementById("quotationContent").cloneNode(true);
     content.querySelectorAll(".no-print").forEach((el) => el.remove());
-    content.querySelectorAll("input, textarea, button").forEach((el) => (el.style.display = "none"));
+    // Replace inputs/textareas with their values so they appear in the Word doc
+    content.querySelectorAll("input, textarea").forEach((el) => {
+      const span = document.createElement("span");
+      span.textContent = el.value;
+      el.parentNode.replaceChild(span, el);
+    });
+    content.querySelectorAll("button").forEach((el) => el.remove());
 
     const css = `<style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -271,11 +260,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const blob = new Blob(["﻿", html], { type: "application/msword" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "Quotation_Marachi_Metal_Fabricators.doc";
+    link.download = buildFilename("doc");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
-    if (notesPrint) notesPrint.style.display = "none";
   };
 });
