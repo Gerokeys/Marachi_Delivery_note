@@ -196,6 +196,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const editing = tableBody.querySelector(".editing-row");
     if (editing) saveRow(editing);
 
+    // html2canvas doesn't render input values — swap meta inputs with text spans
+    const metaInputs = document.querySelectorAll(".meta-input");
+    const swapped = [];
+    metaInputs.forEach((input) => {
+      const span = document.createElement("span");
+      span.textContent = input.value;
+      span.className = "meta-input";
+      input.parentNode.insertBefore(span, input);
+      input.style.display = "none";
+      swapped.push({ input, span });
+    });
+
     document.querySelectorAll(".no-print").forEach((el) => (el.style.display = "none"));
 
     html2pdf()
@@ -210,6 +222,10 @@ document.addEventListener("DOMContentLoaded", function () {
       .save()
       .then(() => {
         document.querySelectorAll(".no-print").forEach((el) => (el.style.display = ""));
+        swapped.forEach(({ input, span }) => {
+          input.style.display = "";
+          span.remove();
+        });
       });
   };
 
