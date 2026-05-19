@@ -542,6 +542,8 @@ footer p {
   .doc-meta-col:last-child { border-bottom: none; }
 
   .add-item-row { flex-wrap: wrap; }
+  .add-item-row input#description  { flex: 1 1 100%; }
+  .add-item-row input#measurements { flex: 1 1 100%; }
   .add-item-row input[type="number"] { max-width: none; flex: 1 1 calc(50% - 4px); }
   #addItemBtn { width: 100%; text-align: center; margin-top: 4px; }
 
