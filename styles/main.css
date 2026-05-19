@@ -92,14 +92,13 @@ section.quotation-table {
 .word {
   font-family: "Poppins", sans-serif;
   text-align: center;
-  padding: 10px 20px;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 6px;
-  color: #1a1a1a;
-  background-color: transparent;
-  border-top: 2px solid #1a1a1a;
-  border-bottom: 2px solid #1a1a1a;
+  padding: 6px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  color: #fff;
+  background-color: #830606;
+  border: none;
   margin: 10px 0 12px;
 }
 
@@ -549,7 +548,7 @@ footer p {
   footer.footer { flex-direction: column; gap: 18px; padding-top: 14px; }
   .totals-table { width: 100%; }
 
-  .word { font-size: 20px !important; letter-spacing: 4px !important; }
+  .word { font-size: 13px !important; letter-spacing: 3px !important; padding: 5px 20px !important; }
 
   .download-section { flex-direction: column; padding: 12px; }
   .download-section button { width: 100%; text-align: center; }
