@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
         margin: [8, 8, 8, 8],
         filename: buildFilename("pdf"),
         image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
+        html2canvas: { scale: 2, useCORS: true, windowWidth: 900 },
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
       })
       .save()

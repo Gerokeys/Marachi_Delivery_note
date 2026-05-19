@@ -54,7 +54,7 @@ section.quotation-table {
 }
 
 .quotation-header .name img {
-  max-height: 100px;
+  max-height: 120px;
   width: auto;
 }
 
@@ -527,9 +527,9 @@ footer p {
     min-height: unset;
   }
 
-  .quotation-header { flex-direction: column; gap: 6px; padding-bottom: 8px; }
-  .quotation-header .name img { max-height: 70px; }
-  .logo { align-self: flex-end; }
+  .quotation-header { flex-direction: row; align-items: flex-start; padding-bottom: 8px; }
+  .quotation-header .name img { max-height: 80px; }
+  .logo { align-self: flex-start; }
   .logo img { width: 54px; height: 54px; }
 
   .doc-meta-box {
